@@ -17,12 +17,12 @@ html
     else
         h2 You're cart is empty!    
     button#completeOrder Complete Order
-
-    each paymentType in paymentTypes
-      div#paymentTypes.isHidden
-        h5 #{paymentType.payment_type_name}    
-        h5 #{paymentType.account_number}   
-        button(class="payClick" id=`${paymentType.id}`) Select Payment
+    if paymentType != undefined
+      each paymentType in paymentTypes
+        div#paymentTypes.isHidden
+          h5 #{paymentType.payment_type_name}    
+          h5 #{paymentType.account_number}   
+          button(class="payClick" id=`${paymentType.id}`) Select Payment
     script
       include ../node_modules/jquery/dist/jquery.min.js    
       include ../client/cart.js
