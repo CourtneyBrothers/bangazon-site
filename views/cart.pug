@@ -15,11 +15,13 @@ html
         h2 #{product.price}
         h6 #{product.product_description}
     else
-        h2 You're cart is empty!    
+        h2 You're cart is empty!   
+        div#paymentTypes.isHidden        
+          button(class="payClick" id=`noProd`) Select Payment         
     button#completeOrder Complete Order
-    if paymentType != undefined
+    if paymentTypes != undefined
       each paymentType in paymentTypes
-        div#paymentTypes.isHidden
+        div.isHidden.toggleMe
           h5 #{paymentType.payment_type_name}    
           h5 #{paymentType.account_number}   
           button(class="payClick" id=`${paymentType.id}`) Select Payment
